@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# all dataset
+bundler_sfm_disambiguation/datasets
+datasets/
