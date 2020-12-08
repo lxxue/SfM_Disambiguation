@@ -372,13 +372,13 @@ void BundlerApp::Disambiguate(float coverage_thres, float score_thres, int new_i
     		int nonitsected = (int) vs[1].size();
     		float d = float(nonitsected) - alpha * itsected;
     		//float d = float(nonitsected);
-    			if (d > delta)
-    			{
-    				delta = d;
-    				the_img = i;
-    				the_tracks = vs;
-    			}
+    		if (d > delta)
+    		{
+    			delta = d;
+    			the_img = i;
+    			the_tracks = vs;
     		}
+    	}
     	//if (the_img > -1 && delta > 0.001f)    // delta
     	if (the_img > -1)    // coverage
     	{
@@ -432,6 +432,7 @@ void BundlerApp::Disambiguate(float coverage_thres, float score_thres, int new_i
 			int k = iter->m_index;
 			if (!flag_imgs[k])    // for each non-iconic image
     		{
+				// TODO: uncomment the continue here so that the non-iconic images only connect to iconic images?
     			//continue;
 			}
 			std::vector<int> &tracks_k = m_image_data[k].m_visible_points;
